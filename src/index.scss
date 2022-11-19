@@ -1,0 +1,70 @@
+$primarycolour: bisque;
+$secondarycolour: #fafafa;
+$bg-input-colour: rgba(253, 230, 197, 0.473);
+*{
+    margin: 0;
+    padding: 0;
+}
+
+@mixin df {
+    display: flex;
+    align-items: center;
+}
+body{
+    background: linear-gradient(130deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+    color: #fefefe;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14px;
+    height: 100vh;
+    justify-content: space-around;
+    @include df;
+}
+
+#root, form{
+    @include df;
+    flex-direction: column;
+}
+
+#root{
+    background-color: rgba($color: $secondarycolour, $alpha: 0.5);
+    border-radius: 20px;
+    box-shadow: 0 0 10px $secondarycolour;
+    padding: 1.5rem;
+}
+
+input, label, button{
+    font-size: 1.5rem;
+    padding: 4px;
+    margin: 0.5rem;
+}
+
+input{
+    background-color: $bg-input-colour;
+    border: none;
+    box-shadow: 0 0 10px $primarycolour;
+}
+#passwordInput{
+    width: 80%;
+}
+
+button{
+    border: none;
+    background-color: $bg-input-colour;
+    border-radius: 20px;
+    padding: 10px;
+    &:hover{
+        background-color: $bg-input-colour;
+        cursor: pointer;
+    }
+}
+
+
+span{
+    @include df;
+    justify-content: space-between;
+    width: 80%;
+}
+
+#Length{
+    width: 2em;
+}

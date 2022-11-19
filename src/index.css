@@ -1,13 +1,66 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  background: linear-gradient(130deg, rgb(131, 58, 180) 0%, rgb(253, 29, 29) 50%, rgb(252, 176, 69) 100%);
+  color: #fefefe;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 14px;
+  height: 100vh;
+  justify-content: space-around;
+  display: flex;
+  align-items: center;
 }
+
+#root, form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#root {
+  background-color: rgba(250, 250, 250, 0.5);
+  border-radius: 20px;
+  box-shadow: 0 0 10px #fafafa;
+  padding: 1.5rem;
+}
+
+input, label, button {
+  font-size: 1.5rem;
+  padding: 4px;
+  margin: 0.5rem;
+}
+
+input {
+  background-color: rgba(253, 230, 197, 0.473);
+  border: none;
+  box-shadow: 0 0 10px bisque;
+}
+
+#passwordInput {
+  width: 80%;
+}
+
+button {
+  border: none;
+  background-color: rgba(253, 230, 197, 0.473);
+  border-radius: 20px;
+  padding: 10px;
+}
+button:hover {
+  background-color: rgba(253, 230, 197, 0.473);
+  cursor: pointer;
+}
+
+span {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+}
+
+#Length {
+  width: 2em;
+}/*# sourceMappingURL=index.css.map */
