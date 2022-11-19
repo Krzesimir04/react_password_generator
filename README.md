@@ -2,4 +2,6 @@
 
 ## description
 
-Easy to use password generator. You can copy and modyfied text and choose types of charactes.
+Easy to use password generator.
+
+You can copy and modyfied text and choose types of charactes.
