@@ -9,14 +9,13 @@ const IncludeSymbols= '~!@#$%^&*()_-+={[}]\\|;:\'",<.>/?';
 
 
 const Form = () => {
-
     const [text,setText]=useState('');//final password
     const [PasswordLength,setPasswordLength]=useState(8);
 
-    const [UpperLetters,setUpperLetters]=useState(false);
-    const [LowerLetters,setLowerLetters]=useState(false);
-    const [Numbers,setNumbers]=useState(false);
-    const [Symbols,setSymbols]=useState(false);
+    const [UpperLetters,setUpperLetters]=useState(true);
+    const [LowerLetters,setLowerLetters]=useState(true);
+    const [Numbers,setNumbers]=useState(true);
+    const [Symbols,setSymbols]=useState(true);
 
     //characters available to use in password
     let charList = '';
@@ -36,8 +35,8 @@ const Form = () => {
     //generate new random password and validation
     let Generate=(e)=>{
       e.preventDefault()
-      if (PasswordLength === 0 || (UpperLetters === false && LowerLetters === false && Numbers ===false && Symbols === false)){
-        return alert('Password is to short (min 8 characters) or checkboxes aren\'t checked');
+      if (PasswordLength < 8 || PasswordLength > 40 || (UpperLetters === false && LowerLetters === false && Numbers ===false && Symbols === false)){
+        return alert('Checkboxes aren\'t checked or length is wrong (8-40)');
       }
 
       for(let i = 0; i<PasswordLength;i++){
@@ -49,7 +48,7 @@ const Form = () => {
     //copy password to clipboard
     let CopyPassword=(e)=>{
       e.preventDefault();
-      if (text===''){ alert('Password does not exist')}
+      if (text === ''){ alert('Password does not exist')}
       else{
         let copy_area=document.querySelector('#passwordInput');
         copy_area.focus();
@@ -59,6 +58,14 @@ const Form = () => {
         alert('Password copied');
     }
     }
+
+    //one checkbox must be checked
+    //(event,function){validation and change state}
+    let Val = (e,f) => {
+      UpperLetters+LowerLetters+Symbols+Numbers > 1 ? f(e.target.checked) : f(true)
+    }
+
+
   return (
     <form>
         <span>
@@ -68,26 +75,26 @@ const Form = () => {
 
         <span>
           <label htmlFor='Length'>Password length</label>
-          <input id='Length' onChange={(e)=> setPasswordLength(e.target.value)} value={PasswordLength} type='number' name='Length' min='8' max='30'/>
+          <input id='Length' onChange={(e)=> setPasswordLength(e.target.value)} value={PasswordLength} type='number' name='Length' min='8' max='40'/>
         </span>
         <span>
           <label htmlFor='Uppercase'>Uppercase letters</label>
-          <input type='checkbox' name='Capital' onChange={(e)=> setUpperLetters(e.target.checked)}/>
+          <input type='checkbox' name='Capital' checked={UpperLetters} onChange={(e)=> Val(e,setUpperLetters)}/>
         </span>
 
         <span>
           <label htmlFor='Lowercase'>Lowercase letters</label>
-          <input type='checkbox' name='Capital' onChange={(e)=> setLowerLetters(e.target.checked)}/>
+          <input type='checkbox' name='Capital' checked={LowerLetters} onChange={(e)=> Val(e,setLowerLetters)}/>
         </span>
 
         <span>
           <label htmlFor='Numbers'>Include numbers</label>
-          <input type='checkbox' name='Capital' onChange={(e)=> setNumbers(e.target.checked)}/>
+          <input type='checkbox' name='Capital' checked={Numbers} onChange={(e)=> Val(e,setNumbers)}/>
         </span>
 
         <span>
           <label htmlFor='Symbols'>Include symbols</label>
-          <input type='checkbox' name='Capital' onChange={(e)=> setSymbols(e.target.checked)}/>
+          <input type='checkbox' name='Capital' checked={Symbols} onChange={(e)=> Val(e,setSymbols)}/>
         </span>
 
         <button onClick={Generate}>Generate password</button>

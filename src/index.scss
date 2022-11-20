@@ -1,15 +1,17 @@
 $primarycolour: bisque;
-$secondarycolour: #fafafa;
+$secondarycolour: #5c5c5c;
 $bg-input-colour: rgba(253, 230, 197, 0.473);
-*{
-    margin: 0;
-    padding: 0;
-}
 
 @mixin df {
     display: flex;
     align-items: center;
 }
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
 body{
     background: linear-gradient(130deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
     color: #fefefe;
@@ -28,7 +30,7 @@ body{
 #root{
     background-color: rgba($color: $secondarycolour, $alpha: 0.5);
     border-radius: 20px;
-    box-shadow: 0 0 10px $secondarycolour;
+    box-shadow: 0 0 10px $primarycolour;
     padding: 1.5rem;
 }
 
