@@ -62,7 +62,7 @@ const Form = () => {
     //one checkbox must be checked
     //(event,function){validation and change state}
     let Val = (e,f) => {
-      UpperLetters+LowerLetters+Symbols+Numbers > 1 ? f(e.target.checked) : f(true)
+      UpperLetters+LowerLetters+Symbols+Numbers > 1 ? f(e.target.checked) : f(true);
     }
 
 
